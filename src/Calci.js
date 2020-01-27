@@ -126,6 +126,7 @@ for(i = 0; i<buttons.length; i++){
 
                
           function back(){
+            document.querySelector('#cal-buttons').style.display = 'block';
             document.querySelector('.rec-data-class').style.display = 'none';
             document.querySelector('.smt-btn').style.display = 'block';
             document.querySelector('.back-btn').style.display = 'none';
@@ -158,6 +159,7 @@ for(i = 0; i<buttons.length; i++){
                 // document.querySelector('.clr-btn').style.display = 'block';
                 },100)
                 document.querySelector('.clr-his-btn').style.display = 'block';
+                document.querySelector('#cal-buttons').style.display = 'none';
 
         }                
 
