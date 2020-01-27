@@ -73,7 +73,7 @@ var btnList = '', btnListEq = '', btnListRec = '';
 
 for(i = 0; i<buttons.length; i++){
     if(buttons[i].value == '='){
-        btnListEq += `<input class="btn-val smt-btn col-12" type="button" value="${buttons[i].id}" onclick="solve()"/>`
+        btnListEq += `<input class="btn-val smt-btn col-12" type="button" style="" disabled="disabled" value="${buttons[i].id}" onclick="solve()"/>`
     }else if(buttons[i].value == 'c'){
         btnList += `<input class="btn-val cncl-btn col-3" type="button" value="${buttons[i].id}" onclick="clr()"/>`
     }else if(buttons[i].value == 'record'){
@@ -89,8 +89,7 @@ for(i = 0; i<buttons.length; i++){
     btnList += `<input class="btn-val eql-btn col-3" type="button" style="background: #E8E8E8" value="${buttons[i].id}" onclick="dis('${buttons[i].value}')"/>`
     }
 }
-
-
+    
 
         function dis(val) 
           { 
@@ -102,18 +101,28 @@ for(i = 0; i<buttons.length; i++){
                 document.querySelector('.smt-btn').disabled = false;
               }
           } 
-          var count = 0;
-          var count1 = count;
+        //   var count = 0;
+        //   var count1 = count;
           function solve() 
           { 
+            var count = parseInt(localStorage.getItem("counter"))
+
               let x = document.getElementById("result").value 
               let y = eval(x)
               document.getElementById("result").value = y         
-                localStorage.setItem(`record${count}`,`${x} = ${y}`)
-                count++;
-
+               
+        var date = new Date();
+        // var yr = date.getFullYear()
+        // console.log(yr)
+       
+        { localStorage.getItem("counter") ? (localStorage.setItem("counter", `${count += 1}`))
+        :(localStorage.setItem("counter", 1), localStorage.setItem(`record${1}`,`${x} = ${y} <span class="time-history">${date}</span>`)) }
+        // setInterval(function(){ 
+        //     var count = localStorage.getItem("counter");
+        //     document.querySelector('.icon-down').innerHTML = dislike;
+        //  }, 10); 
+        localStorage.setItem(`record${count}`,`${x} = ${y} <span class="time-history">${date}</span>`)
           } 
-          console.log(count)
 
                
           function back(){
@@ -121,11 +130,8 @@ for(i = 0; i<buttons.length; i++){
             document.querySelector('.smt-btn').style.display = 'block';
             document.querySelector('.back-btn').style.display = 'none';
             document.querySelector('.rec-btn').disabled = false;
-            document.querySelector('.clr-btn').style.display = 'none';
-           
-
-            
-
+            // document.querySelector('.clr-btn').style.display = 'none';
+            document.querySelector('.clr-his-btn').style.display = 'none';
         }
             
           function rec() 
@@ -146,23 +152,34 @@ for(i = 0; i<buttons.length; i++){
                 
                 setTimeout(function(){
                     document.querySelector('.rec-btn').disabled = true;
-                },100)
-            
-        }                
-
-              
-            setTimeout(function(){
-                document.querySelector('.rec-data-class').style.display = 'block';
+                    document.querySelector('.rec-data-class').style.display = 'block';
                 document.querySelector('.smt-btn').style.display = 'none';
                 document.querySelector('.back-btn').style.display = 'block';
-                document.querySelector('.clr-btn').style.display = 'block';
-            },100)
+                // document.querySelector('.clr-btn').style.display = 'block';
+                },100)
+                document.querySelector('.clr-his-btn').style.display = 'block';
+
+        }                
+
+
+            // setTimeout(function(){
+                
+            //     console.log(document.querySelector('.clr-his-btn'))
+            // },100)
                   } 
           
            function clr() 
           { 
               document.getElementById("result").value = "" 
           } 
+
+          function clrHistory(){
+            localStorage.clear();
+
+              setTimeout(function(){
+                // document.querySelector('.rec-data-class').innerHTML = recList;
+            },100)
+          }
     
 footBtn.innerHTML = btnListEq;
 
