@@ -116,12 +116,12 @@ for(i = 0; i<buttons.length; i++){
         // console.log(yr)
        
         { localStorage.getItem("counter") ? (localStorage.setItem("counter", `${count += 1}`))
-        :(localStorage.setItem("counter", 1), localStorage.setItem(`record${1}`,`${x} = ${y} <span class="time-history">${date}</span>`)) }
+        :(localStorage.setItem("counter", 1), localStorage.setItem(`record${1}`,`<span>${x} = ${y}</span> <span class="time-history">${date}</span>`)) }
         // setInterval(function(){ 
         //     var count = localStorage.getItem("counter");
         //     document.querySelector('.icon-down').innerHTML = dislike;
         //  }, 10); 
-        localStorage.setItem(`record${count}`,`${x} = ${y} <span class="time-history">${date}</span>`)
+        localStorage.setItem(`record${count}`,`<span>${x} = ${y}</span> <span class="time-history">${date}</span>`)
           } 
 
                
