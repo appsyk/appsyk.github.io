@@ -64,7 +64,6 @@ var buttons = [
 ]
 
 
-
 var btnDoc = document.querySelector('#cal-buttons');
 var footBtn = document.querySelector('#bac-btn');
 var recData = document.querySelector('#rec-data');
@@ -183,6 +182,16 @@ for(i = 0; i<buttons.length; i++){
             },100)
           }
     
-footBtn.innerHTML = btnListEq;
+          function onLoader(){
 
-btnDoc.innerHTML = btnList;
+       setTimeout(() => {
+        document.querySelector('.top-block').style.display = 'block';
+
+           document.querySelector('#load-op').style.display = 'none';
+        document.querySelector('#res-ip').innerHTML = `<input class="val-view" type="text" id="result"/>`;
+
+        footBtn.innerHTML = btnListEq;
+        
+        btnDoc.innerHTML = btnList;
+       }, 3000);
+    }

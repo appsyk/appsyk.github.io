@@ -4,7 +4,8 @@ body{
 }
 
 .top-block{
-margin-top:100px;
+    text-align: center;
+    margin-top: 10vh;
 
 }
 .clr-his-btn{
@@ -45,6 +46,7 @@ margin-top:100px;
     background-color: rgb(255, 255, 255);
     /* height: 430px; */
 }
+
 .main-block{
     box-shadow: 0 0 15px 3px rgb(165, 165, 165);
     margin-right: 50%;
@@ -52,7 +54,6 @@ margin-top:100px;
     transform: translateX(-45%);
     width: 400px;
 }
-
 .main-head{
 max-height:60px;
 width: 100%;
@@ -93,6 +94,7 @@ text-align: center;
 word-break: break-all;
     padding: 5px;
     padding-bottom: 21px;
+    text-align: left;
 }
 
 .time-history{
@@ -119,7 +121,7 @@ word-break: break-all;
 .rec-btn{
     max-width: 45% !important;
     font-size: x-large;
-    height: 70px;
+    /* height: 70px; */
 }
 .back-btn{
     background-color: #f35353;
