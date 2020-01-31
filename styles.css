@@ -91,17 +91,26 @@ text-align: center;
     font-weight: 500;
     background: #EAEAEA;
     box-shadow: rgb(155, 154, 154) 2px 2px 8px;
-word-break: break-all;
+    word-break: break-all;
     padding: 5px;
-    padding-bottom: 21px;
+    display: grid;
+    padding-bottom: 30px;
     text-align: left;
 }
 
 .time-history{
+  
     float: right;
     font-size: 11px;
+    width: 85%;
+    /* right: -172px; */
+    left: 53px;
+    /* top: 10px; */
+    bottom: -25px;
     background-color: rgb(146, 146, 146);
     color: black;
+    position: relative;
+    
 }
 
 

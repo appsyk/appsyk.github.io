@@ -100,8 +100,7 @@ for(i = 0; i<buttons.length; i++){
                 document.querySelector('.smt-btn').disabled = false;
               }
           } 
-        //   var count = 0;
-        //   var count1 = count;
+
           function solve() 
           { 
             var count = parseInt(localStorage.getItem("counter"))
@@ -111,15 +110,11 @@ for(i = 0; i<buttons.length; i++){
               document.getElementById("result").value = y         
                
         var date = new Date();
-        // var yr = date.getFullYear()
-        // console.log(yr)
-       
+        console.log(date.getDay(), date.getMonth(), date.getDate(), date.getFullYear(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds() )
+
         { localStorage.getItem("counter") ? (localStorage.setItem("counter", `${count += 1}`))
         :(localStorage.setItem("counter", 1), localStorage.setItem(`record${1}`,`<span>${x} = ${y}</span> <span class="time-history">${date}</span>`)) }
-        // setInterval(function(){ 
-        //     var count = localStorage.getItem("counter");
-        //     document.querySelector('.icon-down').innerHTML = dislike;
-        //  }, 10); 
+
         localStorage.setItem(`record${count}`,`<span>${x} = ${y}</span> <span class="time-history">${date}</span>`)
           } 
 
@@ -130,7 +125,6 @@ for(i = 0; i<buttons.length; i++){
             document.querySelector('.smt-btn').style.display = 'block';
             document.querySelector('.back-btn').style.display = 'none';
             document.querySelector('.rec-btn').disabled = false;
-            // document.querySelector('.clr-btn').style.display = 'none';
             document.querySelector('.clr-his-btn').style.display = 'none';
         }
             
