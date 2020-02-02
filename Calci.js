@@ -63,6 +63,7 @@ var buttons = [
     },
 ]
 
+var cnt = localStorage.getItem('counter')
 
 var btnDoc = document.querySelector('#cal-buttons');
 var footBtn = document.querySelector('#bac-btn');
@@ -76,8 +77,12 @@ for(i = 0; i<buttons.length; i++){
     }else if(buttons[i].value == 'c'){
         btnList += `<input class="btn-val cncl-btn col-3" type="button" value="${buttons[i].id}" onclick="clr()"/>`
     }else if(buttons[i].value == 'record'){
-        btnListEq += `<input class="btn-val rec-btn col-3" type="button" style="z-index: 100" value="${buttons[i].id}" onclick="rec()"/>`
-    } else if(buttons[i].value == '+' || buttons[i].value == '-' || buttons[i].value == '/' || buttons[i].value == '*'|| buttons[i].value == '.' ){
+        btnListEq += `<input class="btn-val rec-btn col-3" type="button" style="z-index: 100" value="${buttons[i].id}"  onclick="rec()"/>`
+    }
+    /*else if(buttons[i].value == 'record' && cnt !== null){
+        btnListEq += `<input class="btn-val rec-btn col-3" type="button" style="z-index: 100" value="${buttons[i].id}"  onclick="rec()"/>`
+    } */
+    else if(buttons[i].value == '+' || buttons[i].value == '-' || buttons[i].value == '/' || buttons[i].value == '*'|| buttons[i].value == '.' ){
         btnList += `<input class="btn-val col-3" type="button" value="${buttons[i].id}" onclick="dis('${buttons[i].value}')"/>`
     }else if(buttons[i].value == 'Back'){
         btnListEq += `<input class="btn-val back-btn col-12" style="display:none" type="button" value="${buttons[i].id}" onclick="back()"/>`
@@ -116,7 +121,8 @@ for(i = 0; i<buttons.length; i++){
         :(localStorage.setItem("counter", 1), localStorage.setItem(`record${1}`,`<span>${x} = ${y}</span> <span class="time-history">${date}</span>`)) }
 
         localStorage.setItem(`record${count}`,`<span>${x} = ${y}</span> <span class="time-history">${date}</span>`)
-          } 
+       
+    } 
 
                
           function back(){
@@ -132,7 +138,7 @@ for(i = 0; i<buttons.length; i++){
           {  
               var arr = [];
             for( c = 0; c <= 10; c++){
-                arr.push(localStorage.getItem(`record${c}`));
+                arr.unshift(localStorage.getItem(`record${c}`));
             } 
             c++
             var recList = '';
@@ -170,9 +176,10 @@ for(i = 0; i<buttons.length; i++){
 
           function clrHistory(){
             localStorage.clear();
-
               setTimeout(function(){
                 // document.querySelector('.rec-data-class').innerHTML = recList;
+                location.reload();
+
             },100)
           }
     
@@ -189,3 +196,4 @@ for(i = 0; i<buttons.length; i++){
         btnDoc.innerHTML = btnList;
        }, 3000);
     }
+
