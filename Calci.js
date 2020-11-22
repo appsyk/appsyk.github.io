@@ -194,6 +194,6 @@ for(i = 0; i<buttons.length; i++){
         footBtn.innerHTML = btnListEq;
         
         btnDoc.innerHTML = btnList;
-       }, 3000);
+       }, 1000);
     }
 
